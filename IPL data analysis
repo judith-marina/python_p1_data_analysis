@@ -1,0 +1,26 @@
+#load the required libraries
+import pandas as pd 
+from matplotlib import pyplot as plt
+import seaborn as sns
+
+#load data
+file_path = r"C:\Users\Hp\Documents\Data\matches.csv"
+ipl = pd.read_csv(r"C:\Users\Hp\Documents\Data\matches.csv")
+
+#Check data loaded
+print(ipl.head()) 
+
+#Check data shape
+print(ipl.shape)
+
+#To get the frequency of men for the match awards
+print(ipl['player_of_match'].value_counts())
+
+#To get the top 5 players with most man of the match awards
+print (ipl['player_of_match'].value_counts()[0:5])
+
+#To visually represent the top 5 players with most man of the match awards
+plt.figure(figsize=(5,5))
+plt.bar(list(ipl['player_of_match'].value_counts()[0:5].keys()),list(ipl['player_of_match'].value_counts()[0:5]))
+plt.show()
+
